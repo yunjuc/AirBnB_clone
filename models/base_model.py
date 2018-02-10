@@ -25,8 +25,6 @@ class BaseModel():
 
     def to_dict(self):
         '''Serialize __dict__ and add class info'''
-        setattr(self, "updated_at", str(self.updated_at))
-        setattr(self, "created_at", str(self.created_at))
         j_dict = self.__dict__
         j_dict["__class__"] = self.__class__.__name__
         return j_dict
