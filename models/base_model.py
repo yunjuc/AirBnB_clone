@@ -24,7 +24,10 @@ class BaseModel():
         self.updated_at = datetime.datetime.now()
 
     def to_dict(self):
-        '''Save __dict__ to a dict with class info'''
-        setattr(self, " __class__", str(type(self).__name__))
-        return self.__dict__
+        '''Serialize __dict__ and add class info'''
+        setattr(self, "updated_at", str(self.updated_at))
+        setattr(self, "created_at", str(self.created_at))
+        j_dict = self.__dict__
+        j_dict["__class__"] = self.__class__.__name__
+        return j_dict
 
