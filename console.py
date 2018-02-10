@@ -13,7 +13,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, line):
-        '''EOF command to exit the program
+        '''Exit the program when end of file
         '''
         return True
 
