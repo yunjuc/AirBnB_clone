@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+'''Command console interpreter'''
 import cmd
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-'''Command console interpreter'''
 
 
 class HBNBCommand(cmd.Cmd):
