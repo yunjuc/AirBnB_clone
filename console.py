@@ -34,7 +34,7 @@ class HBNBCommand(cmd.Cmd):
         elif (arg[0] in cls_list) is False:
             print("** class doesn't exist **")
         else:
-            new = BaseModel(0) # replace with save to file later
+            new = BaseModel(0)  # replace with save to file later
             print(new.id)
 
     def do_show(self, line):
@@ -50,12 +50,12 @@ class HBNBCommand(cmd.Cmd):
         elif (arg[1] in json_file) is False:  # replace json_file
             print("** no instance found **")
         else:
-            for i in json_file: # replace json_file
+            for i in json_file:  # replace json_file
                 print(i.id)
 
-   def do_destory(self, line):
-       '''Delete instance based on class name and id
-       '''
+    def do_destory(self, line):
+        '''Delete instance based on class name and id
+        '''
         arg = line.split()
         if len(arg) == 0:
             print("** class name missing **")
@@ -66,10 +66,10 @@ class HBNBCommand(cmd.Cmd):
         elif (arg[1] in json_file) is False:  # replace json_file
             print("** no instance found **")
         else:
-            for i in json_file: # replace json_file
+            for i in json_file:  # replace json_file
                 del(i.id)       # check how to delete
 
-    def do_all(self, line):   
+    def do_all(self, line):
         '''Display all instances info based on class name
         '''
         arg = line.split()
@@ -78,12 +78,15 @@ class HBNBCommand(cmd.Cmd):
         elif (arg[0] in cls_list) is False:
             print("** class doesn't exist **")
         else:
-            for i in json_file: # replace json_file
+            for i in json_file:  # replace json_file
                 print(i.id)
 
     def do_update(self, line):
         '''Update an instance based on class name and id with \
-           attribute info
+           attribute info.
+
+           Usage: update <class name> <id> <attribute name> \
+           "<attribute value>"
         '''
         arg = line.split()
         if len(arg) == 0:
