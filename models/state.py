@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-'''User class module'''
+'''State class module'''
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
-    '''User class'''
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+class State(BaseModel):
+    '''State class'''
+    name = ""
 
     def __init__(self):
         '''Instance instantiation'''

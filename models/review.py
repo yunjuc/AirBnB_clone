@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-'''User class module'''
+'''Review class module'''
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
-    '''User class'''
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+class Review(BaseModel):
+    '''Review class'''
+    place_id = ""
+    user_id = ""
+    text = ""
 
     def __init__(self):
         '''Instance instantiation'''
