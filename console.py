@@ -15,7 +15,7 @@ from models.engine.file_storage import FileStorage
 class HBNBCommand(cmd.Cmd):
     '''hbnb console'''
     prompt = '(hbnb) '
-    cls_list = ['BaseModel', 'User', 'City', 'State', 'Place', 'Review', 
+    cls_list = ['BaseModel', 'User', 'City', 'State', 'Place', 'Review',
                 'Amenity']
 
     def do_quit(self, line):
@@ -89,8 +89,15 @@ class HBNBCommand(cmd.Cmd):
         elif (arg[0] in cls_list) is False:
             print("** class doesn't exist **")
         else:
-            for k, v in obj_list.items:  # doesn't work with seperate class name
-                print(v)
+            new_list = []
+            if arg[0] is True:
+                for k, v in obj_list.items():
+                    if arg[0] = v('__class__'):
+                        new_list.append(v)
+            else:
+                for k, v in obj_list.items:
+                    new_list.append(v)
+            print(new_list)
 
     def do_update(self, line):
         '''Update an instance based on class name and id with \
@@ -114,7 +121,9 @@ class HBNBCommand(cmd.Cmd):
         elif (arg[3] is None):
             print("** value missing **")
         else:
-            cls = obj_list[arg[0]]
+            obj = obj_list[arg[0]+'.'+arg[1]]
+            setattr(obj, arg[2], arg[3])
+            models.storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
