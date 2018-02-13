@@ -12,35 +12,47 @@ from models.amenity import Amenity
 from models.review import Review
 
 
-class FileStorage():
+class FileStorage:
     """
-    serializes and deserializes
+    Serializes and deserializes
     """
+
     __file_path = "file.json"
-    __object = {}
+    __objects = {}
+    cls_list = ['BaseModel', 'User', 'City', 'Place', 'State', 'Review', 'Amenity']
 
     def all(self):
         """
-        returns filestorage objects
+        Return filestorage objects
         """
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """
-        sets __objects with key class name.id
+        Set __objects with key class name.id
         """
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
         """
-        serializes objects to JSON
+        Serializes objects to JSON
         """
-        with open(self.__file_path, mode='w', encoding='utf-8') as file:
-            file.write(json.dump(self.__objects))
+        result = {}
+        for k, v in self.__objects.items():
+            result[k] = v.to_dict()
+        with open(self.__file_path, mode='w', encoding='utf-8') as f:
+            json.dump(result, f)
 
     def reload(self):
         """
-        deserializes JSON file to __objects
+        Deserialize JSON file to __object
         """
-        
+        try:
+            with open(self.__file_path) as f:
+                j_dict = json.load(f)
+            for k, v in j_dict.items():
+                cls = v['__class__']
+                self.__objects[k] = cls(**v)
+        except FileNotFoundError as e:
+            pass
