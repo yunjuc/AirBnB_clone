@@ -17,6 +17,6 @@ class Place(BaseModel):
     longitutde = 0.0
     amenity_ids = ""
 
-    def __init__(self):
-        '''Instance instantiation'''
-        super().__init__()
+#    def __init__(self):
+#        '''Instance instantiation'''
+#        super().__init__()

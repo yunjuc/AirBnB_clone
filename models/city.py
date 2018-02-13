@@ -8,6 +8,6 @@ class City(BaseModel):
     state_id = ""
     name = ""
 
-    def __init__(self):
-        '''Instance instantiation'''
-        super().__init__()
+#    def __init__(self):
+#        '''Instance instantiation'''
+#        super().__init__()

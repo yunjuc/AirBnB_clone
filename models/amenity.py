@@ -7,6 +7,6 @@ class Amenity(BaseModel):
     '''Amenity class'''
     name = ""
 
-    def __init__(self):
-        '''Instance instantiation'''
-        super().__init__()
+#    def __init__(self):
+#        '''Instance instantiation'''
+#        super().__init__()

@@ -10,6 +10,6 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
 
-    def __init__(self):
-        '''Instance instantiation'''
-        super().__init__()
+#    def __init__(self):
+#        '''Instance instantiation'''
+#        super().__init__()

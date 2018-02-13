@@ -2,26 +2,31 @@
 '''Base class module'''
 import uuid
 import datetime
-from models import storage
+import models
 
 
 class BaseModel():
     '''Base class of all models'''
 
+    id = ""
+    created_at = None
+    updated_at = None
+
     def __init__(self, *arags, **kwargs):
         '''Instance instantiation'''
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
-        storage.new(self)
-
-        if kwargs is not None:
+        if len(kwargs) == 0:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.utcnow()
+            self.updated_at = datetime.datetime.utcnow()
+            models.storage.new(self)
+        else:
             for k, v in kwargs.items():
-                if k is 'created_at' or k is 'updated_at':
+                if k == 'created_at' or k == 'updated_at':
                     setattr(self, k, datetime.datetime.strptime(v,
                             '%Y-%m-%dT%H:%M:%S.%f'))
-                elif k is '__class__':
-                    pass
+                elif k == '__class__':
+                    v = models.cls_list[v]
+                    setattr(self, k, v)
                 else:
                     setattr(self, k, v)
 
@@ -33,12 +38,12 @@ class BaseModel():
 
     def save(self):
         '''Update updated_at time'''
-        self.updated_at = datetime.datetime.now()
-        storage.save()
+        self.updated_at = datetime.datetime.utcnow()
+        models.storage.save()
 
     def to_dict(self):
         '''Serialize __dict__ and add class info'''
-        j_dict = self.__dict__
+        j_dict = dict(self.__dict__)
         j_dict["updated_at"] = self.updated_at.isoformat()
         j_dict["created_at"] = self.created_at.isoformat()
         j_dict["__class__"] = self.__class__.__name__
