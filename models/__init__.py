@@ -12,7 +12,8 @@ from models.amenity import Amenity
 from models.review import Review
 
 
-cls_list = {'BaseModel': BaseModel, 'User': User, 'City': City, 'Place': Place, 'State': State, 'Review': Review, 'Amenity': Amenity}
+cls_list = {'BaseModel': BaseModel, 'User': User, 'City': City, 'Place': Place,
+            'State': State, 'Review': Review, 'Amenity': Amenity}
 
 storage = FileStorage()
 storage.reload()
