@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-'''Base class model'''
+'''Base class module'''
 import uuid
 import datetime
 from models import storage
+
 
 class BaseModel():
     '''Base class of all models'''
@@ -13,6 +14,7 @@ class BaseModel():
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
         storage.new(self)
+
         if kwargs is not None:
             for k, v in kwargs.items():
                 if k is 'created_at' or k is 'updated_at':
@@ -33,6 +35,7 @@ class BaseModel():
         '''Update updated_at time'''
         self.updated_at = datetime.datetime.now()
         storage.save()
+
 
     def to_dict(self):
         '''Serialize __dict__ and add class info'''
