@@ -2,6 +2,7 @@
 """
 FileStorage serializes and deserializes
 """
+
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -41,8 +42,8 @@ class FileStorage:
         result = {}
         for k, v in self.__objects.items():
             result[k] = v.to_dict()
-        with open(self.__file_path, mode='w', encoding='utf-8') as f:
-            json.dump(result, f)
+        with open(self.__file_path, mode='w', encoding='utf-8') as file:
+            json.dump(result, file)
 
     def reload(self):
         """
@@ -56,3 +57,4 @@ class FileStorage:
                 self.__objects[k] = cls(**v)
         except FileNotFoundError as e:
             pass
+

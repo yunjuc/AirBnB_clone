@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-'''__init__ FileStorage instance'''
-from models.engine.file_storage import FileStorage
+"""
+creating FileStorage instance
+"""
 
+
+from models.engine.file_storage import FileStorage
 
 storage = FileStorage()
 storage.reload()
