@@ -47,7 +47,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
-        elif (arg[1] is None):
+        elif (arg[0] in models.cls_list and len(arg) == 1):
             print("** instance id missing **")
         elif (arg[0]+'.'+arg[1] in obj_list) is False:
             print("** no instance found **")
@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
-        elif (arg[0] in models.cls_list and arg[1] is None):
+        elif (arg[0] in models.cls_list and len(arg) == 1):
             print("** instance id missing **")
         elif (arg[0]+'.'+arg[1] in obj_list) is False:
             print("** no instance found **")
@@ -77,19 +77,15 @@ class HBNBCommand(cmd.Cmd):
         arg = line.split()
         obj_list = models.storage.all()
         if len(arg) == 0:
-            print("** class name missing **")
+            for k, v in obj_list.items():
+                print(v)
         elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
-        else:
-            new_list = []
-            if arg[0] is True:
-                for k, v in obj_list.items():
-                    if arg[0] == v('__class__'):
-                        new_list.append(v)
-            else:
-                for k, v in obj_list.items:
-                    new_list.append(v)
-            print(new_list)
+        elif (arg[0] in models.cls_list):
+            cls = models.cls_list[arg[0]]
+            for k, v in obj_list.items():
+                if cls == type(v):
+                    print(v)
 
     def do_update(self, line):
         '''Update an instance based on class name and id with \
@@ -104,18 +100,19 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
-        elif (arg[1] is None):
-            print("** instance id missing **")
-        elif (arg[0]+'.'+arg[1] in obj_list) is False:
-            print("** no instance found **")
-        elif (arg[2] is None):
-            print("** attribute name missing **")
-        elif (arg[3] is None):
-            print("** value missing **")
-        else:
-            obj = obj_list[arg[0]+'.'+arg[1]]
-            setattr(obj, arg[2], arg[3])
-            models.storage.save()
+        elif arg[0] in models.cls_list:
+            if len(arg) == 1:
+                print("** instance id missing **")
+            elif (arg[0]+'.'+arg[1] in obj_list) is False:
+                print("** no instance found **")
+            elif len(arg) == 2:
+                print("** attribute name missing **")
+            elif len(arg) == 3:
+                print("** value missing **")
+            else:
+                obj = obj_list[arg[0]+'.'+arg[1]]
+                setattr(obj, arg[2], arg[3])
+                models.storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
