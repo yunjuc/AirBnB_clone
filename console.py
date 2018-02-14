@@ -2,21 +2,12 @@
 '''Command console interpreter'''
 import cmd
 import models
-from models.base_model import BaseModel
-from models.user import User
-from models.city import City
-from models.state import State
-from models.place import Place
-from models.review import Review
-from models.amenity import Amenity
-from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
     '''hbnb console'''
+
     prompt = '(hbnb) '
-    cls_list = ['BaseModel', 'User', 'City', 'State', 'Place', 'Review',
-                'Amenity']
 
     def do_quit(self, line):
         '''Quit command to exit the program
@@ -39,10 +30,11 @@ class HBNBCommand(cmd.Cmd):
         arg = line.split()
         if len(arg) == 0:
             print("** class name missing **")
-        elif (arg[0] in cls_list) is False:
+        elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
         else:
-            new = arg[0]()
+            cls_func = models.cls_list[arg[0]]
+            new = cls_func()
             models.storage.save()
             print(new.id)
 
@@ -53,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
         obj_list = models.storage.all()
         if len(arg) == 0:
             print("** class name missing **")
-        elif (arg[0] in cls_list) is False:
+        elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
         elif (arg[1] is None):
             print("** instance id missing **")
@@ -69,9 +61,9 @@ class HBNBCommand(cmd.Cmd):
         obj_list = models.storage.all()
         if len(arg) == 0:
             print("** class name missing **")
-        elif (arg[0] in cls_list) is False:
+        elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
-        elif (arg[1] is None):
+        elif (arg[0] in models.cls_list and arg[1] is None):
             print("** instance id missing **")
         elif (arg[0]+'.'+arg[1] in obj_list) is False:
             print("** no instance found **")
@@ -86,13 +78,13 @@ class HBNBCommand(cmd.Cmd):
         obj_list = models.storage.all()
         if len(arg) == 0:
             print("** class name missing **")
-        elif (arg[0] in cls_list) is False:
+        elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
         else:
             new_list = []
             if arg[0] is True:
                 for k, v in obj_list.items():
-                    if arg[0] = v('__class__'):
+                    if arg[0] == v('__class__'):
                         new_list.append(v)
             else:
                 for k, v in obj_list.items:
@@ -110,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
         obj_list = models.storage.all()
         if len(arg) == 0:
             print("** class name missing **")
-        elif (arg[0] in cls_list) is False:
+        elif (arg[0] in models.cls_list) is False:
             print("** class doesn't exist **")
         elif (arg[1] is None):
             print("** instance id missing **")
