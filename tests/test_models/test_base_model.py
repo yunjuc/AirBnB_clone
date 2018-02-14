@@ -43,6 +43,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.base.id, new.id)
         self.assertEqual(self.base.name, new.name)
         self.assertEqual(self.base.number, new.number)
-        self.assertEqual(self.base.created_at, new.created_at.isoformat())
-        self.assertEqual(self.base.updated_at, new.updated_at.isoformat())
+        self.assertEqual(self.base.created_at, new.created_at)
+        self.assertEqual(self.base.updated_at, new.updated_at)
         self.assertIsNot(self.base, new)
