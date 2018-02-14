@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 unnittest file storage
 """
@@ -10,6 +11,10 @@ from models.base_model import BaseModel
 
 
 class TestFileStorage(unittest.TestCase):
+    """
+    class TestFileStorage
+    """
+
     def test_exist(self):
         """
         tests instance

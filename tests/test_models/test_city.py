@@ -2,7 +2,6 @@
 """
 module contains unittest for city
 """
-
 import unittest
 from models.city import City
 
