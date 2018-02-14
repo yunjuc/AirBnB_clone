@@ -38,4 +38,3 @@ class TestPlace(unittest.TestCase):
         """
         hi = Place()
         self.assertEqual("", hi.name)
-

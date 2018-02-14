@@ -8,6 +8,7 @@ import json
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 
+
 class TestFileStorage(unittest.TestCase):
     def test_exist(self):
         """
@@ -31,4 +32,3 @@ class TestFileStorage(unittest.TestCase):
         a = FileStorage()
         b = a.all()
         self.assertIsInstance(b, dict)
-
