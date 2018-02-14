@@ -2,6 +2,7 @@
 '''Command console interpreter'''
 import cmd
 import models
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -27,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         '''Create a new instanac
         '''
-        arg = line.split()
+        arg = shlex.split(line)
         if len(arg) == 0:
             print("** class name missing **")
         elif (arg[0] in models.cls_list) is False:
@@ -41,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         '''Display instance info based on class name and id
         '''
-        arg = line.split()
+        arg = shlex.split(line)
         obj_list = models.storage.all()
         if len(arg) == 0:
             print("** class name missing **")
@@ -54,10 +55,10 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(obj_list[arg[0]+'.'+arg[1]])
 
-    def do_destory(self, line):
+    def do_destroy(self, line):
         '''Delete instance based on class name and id
         '''
-        arg = line.split()
+        arg = shlex.split(line)
         obj_list = models.storage.all()
         if len(arg) == 0:
             print("** class name missing **")
@@ -74,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         '''Display all instances info based on class name
         '''
-        arg = line.split()
+        arg = shlex.split(line)
         obj_list = models.storage.all()
         if len(arg) == 0:
             for k, v in obj_list.items():
@@ -94,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
            Usage: update <class name> <id> <attribute name> \
            "<attribute value>"
         '''
-        arg = line.split()
+        arg = shlex.split(line)
         obj_list = models.storage.all()
         if len(arg) == 0:
             print("** class name missing **")
