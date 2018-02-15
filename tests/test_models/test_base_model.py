@@ -46,3 +46,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.base.created_at, new.created_at)
         self.assertEqual(self.base.updated_at, new.updated_at)
         self.assertIsNot(self.base, new)
+
+    def test_save(self):
+        """
+        Test save
+        """
+        updated = self.thing.updated_at
+        self.thing.save()
+        self.assertNotEqual(updated, self.thing.updated_at)
