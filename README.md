@@ -3,7 +3,7 @@
 # Overview
 
 This is the first part to the AirBnB clone project for the Holbertonschool.
-It includes the console which we can use to manage our AirBnB objects. Think, shell!
+It includes the console which we can use to manage our AirBnB objects. Thanks, shell!
 
 ## Instructions
 
@@ -15,7 +15,21 @@ To start the console, run:
 
 ## About the Command Interpreter a.k.a the Console
 
-### Usage
+### Commands
+
+Commands | Description 
+---------|-------------
+**create** <class_name>| Creates new instance of class and saves it to JSON file and prints the id 
+**quit**| Exits program
+**help**| Displays command documents
+**destroy** <class_name> <class_id>| Deletes instance
+**show** <class_name> <class_id> | Prints __str__
+**all** <class_name> <class_id> | Prints str rep of all instances
+**update** <class_name> <class_id> <key> <value> | Appends attributes
+
+_*List of class: BaseModel, User, City, State, Place, Review, Amenity_
+
+### Examples
 
 The console allows us to manage the objects of our project:
 * Create a new object
@@ -45,16 +59,4 @@ The console allows us to manage the objects of our project:
 (hbnb)
 ```
 
-### Commands
 
-Commands | Description 
----------|-------------
-**create** <class_name>| Creates new instance of class and saves it to JSON file and prints the id 
-**quit**| Exits program
-**help**| Displays command documents
-**destroy** <class_name> <class_id>| Deletes instance
-**show** <class_name> <class_id> | Prints __str__
-**all** <class_name> <class_id> | Prints str rep of all instances
-**update** <class_name> <class_id> <key> <value> | Appends attributes
-
-_*List of class: BaseModel, User, City, State, Place, Review, Amenity_
