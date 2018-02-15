@@ -21,7 +21,7 @@ The console allows us to manage the objects of our project:
 * Create a new object
 ```
 (hbnb) create BaseModel
- 4cd2bf8f-69b7-440f-8df9-5cc8f223776a
+4cd2bf8f-69b7-440f-8df9-5cc8f223776a
 (hbnb)
 ```
 * Retrieve an object from a file
@@ -56,4 +56,5 @@ Commands | Description
 **show** <class_name> <class_id> | Prints __str__
 **all** <class_name> <class_id> | Prints str rep of all instances
 **update** <class_name> <class_id> <key> <value> | Appends attributes
+
 _*List of class: BaseModel, User, City, State, Place, Review, Amenity_
