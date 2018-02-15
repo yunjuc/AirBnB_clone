@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!usr/bin/python3
 '''Unittest for BaseModel class'''
 import unittest
 from models.base_model import BaseModel
@@ -51,6 +51,8 @@ class TestBaseModel(unittest.TestCase):
         """
         Test save
         """
-        updated = self.thing.updated_at
-        self.thing.save()
-        self.assertNotEqual(updated, self.thing.updated_at)
+        before = self.base.updated_at
+        self.base.save()
+        after = self.base.updated_at
+        self.assertEqual(type(before), type(after))
+        self.assertNotEqual(before, after)
