@@ -89,11 +89,7 @@ class HBNBCommand(cmd.Cmd):
                     print(v)
 
     def do_update(self, line):
-        '''Update an instance based on class name and id with \
-           attribute info.
-
-           Usage: update <class name> <id> <attribute name> \
-           "<attribute value>"
+        '''Update an instance based on class name and id with attribute info.
         '''
         arg = shlex.split(line)
         obj_list = models.storage.all()
