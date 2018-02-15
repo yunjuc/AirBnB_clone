@@ -60,5 +60,5 @@ The console allows us to manage the objects of our project:
 ```
 
 ## Authoers
-James Choi <james.choi@holbertonschool.com>
+James Choi <james.choi@holbertonschool.com>  
 Yunju Chen <yunju.chen@holbertonschool.com>
