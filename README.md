@@ -13,7 +13,7 @@ First, clone our repo:
 To start the console, run:
 `$ ./console.py`
 
-## About the Command Interpreter a.k.a the Console
+## Usage
 
 ### Commands
 
