@@ -59,6 +59,6 @@ The console allows us to manage the objects of our project:
 (hbnb)
 ```
 
-## Authoers  
-* [James Choi] (https://github.com/imperfectskillz)  
-* [Yunju Chen] (https:/.github.com/yunjuc)
+## Authors 
+* [James Choi](https://github.com/imperfectskillz)  
+* [Yunju Chen](https:/.github.com/yunjuc)
