@@ -5,6 +5,7 @@ import unittest
 import uuid
 import datetime
 import json
+import os
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 
@@ -22,7 +23,7 @@ class TestFileStorage(unittest.TestCase):
         """
         a = BaseModel()
         a.save()
-        self.assertEqual(true, os.path.exists('file.json'))
+        self.assertTrue(os.path.exists('file.json'))
 
     def test_all(self):
         """
