@@ -16,25 +16,47 @@ class TestFileStorage(unittest.TestCase):
     class TestFileStorage
     """
 
+    def setUp(self):
+        '''Set up test case'''
+        self.f = FileStorage()
+        self.base = BaseModel()
+        self.model = BaseModel()
+
+    def tearDown(self):
+        '''End of test'''
+        pass
+
     def test_exist(self):
         """
-        tests instance
+        Test instance
         """
-        a = FileStorage()
-        self.assertIsInstance(a, FileStorage)
+        self.assertIsInstance(self.f, FileStorage)
 
     def test_save(self):
         """
-        tests save method
+        Test save method
         """
-        a = BaseModel()
-        a.save()
+        self.f.save()
         self.assertEqual(True, os.path.exists('file.json'))
 
     def test_all(self):
         """
-        test returns dict
+        Test return dict
         """
-        a = FileStorage()
-        b = a.all()
-        self.assertIsInstance(b, dict)
+        obj_dict = self.f.all()
+        self.assertIsInstance(obj_dict, dict)
+        key1 = 'BaseModel.'+self.base.id
+        key2 = 'BaseModel.'+self.model.id
+        self.assertEqual(obj_dict[key1], self.base)
+        self.assertEqual(obj_dict[key2], self.model)
+
+    def test_new(self):
+        '''Test add new instance'''
+        obj_dict = self.f.all()
+        key1 = 'BaseModel.'+self.base.id
+        self.assertEqual(obj_dict[key1], self.base)
+
+    def test_reload(self):
+        '''Test reload instance'''
+        import models
+        self.assertEqual(self.f.all(), models.storage.all())
