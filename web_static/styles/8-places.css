@@ -17,18 +17,17 @@ article {
   margin: 20px;
   border: #ff5a5f 1px solid;
   border-radius: 4px;
-}
-
-.title {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  height: 5em;
 }
 
 article h2 {
   font-size: 30px;
   margin: auto;
+}
+
+.title {
+  display: flex;
+  height: 5em;
 }
 
 .price_by_night {
@@ -43,7 +42,7 @@ article h2 {
   height: 60px;
   font-size: 30px;
   position: absolute;
-  right: 0.1em;
+  right: 0.5em;
 }
 
 information {
@@ -69,5 +68,5 @@ information {
 }
 
 .owner, .description {
-  margin-top: 5px;
+  padding-top: 5px;
 }
