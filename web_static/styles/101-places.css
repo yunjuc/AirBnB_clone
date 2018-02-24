@@ -20,9 +20,6 @@ article {
   position: relative;
 }
 
-article h2 {
-  font-size: 30px;
-}
 
 article ul {
   margin: 0;
@@ -80,32 +77,32 @@ article ul {
   padding-top: 5px;
 }
 
-.amenities_2, .reviews {
+article .amenities, article .reviews {
   margin-top: 40px;
   font-size: 16px;
 }
 
-.amenities_2 h2, .reviews h2 {
+article .amenities h2, article .reviews h2 {
     border-bottom: #dddddd 1px solid;
     font-size: 16px;
 }
 
-.amenities_2 ul li {
+article .amenities ul li {
   display: flex;
   align-items: center;
   margin: 0;
 }
 
-.amenities_2 ul li img {
+article .amenities ul li img {
   width: 40px;
 }
 
-.reviews h3 {
+article .reviews h3 {
   font-size: 14px;
   margin-top: 5px;
 }
 
-.reviews p {
+article .reviews p {
   font-size: 12px;
   font-weight: normal;
 }
