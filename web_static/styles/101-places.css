@@ -24,6 +24,11 @@ article h2 {
   font-size: 30px;
 }
 
+article ul {
+  margin: 0;
+  padding-top: 10px;
+}
+
 .title h2 {
   font-size: 30px;
   margin: auto;
@@ -80,13 +85,9 @@ information {
   font-size: 16px;
 }
 
-article h2 {
+.amenities_2 h2, .reviews h2 {
     border-bottom: #dddddd 1px solid;
-}
-
-article ul {
-  margin: 0;
-  padding-top: 10px;
+    font-size: 16px;
 }
 
 .amenities_2 ul li {
