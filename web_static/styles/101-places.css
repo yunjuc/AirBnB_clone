@@ -54,7 +54,7 @@ article ul {
   right: 0.5em;
 }
 
-information {
+.information {
   display: flex;
   justify-content: center;
   height: 80px;
